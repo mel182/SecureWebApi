@@ -1,0 +1,14 @@
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\bin\Debug\netcoreapp2.2\SecureWebAPi.deps.json
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\bin\Debug\netcoreapp2.2\SecureWebAPi.runtimeconfig.json
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\bin\Debug\netcoreapp2.2\SecureWebAPi.runtimeconfig.dev.json
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\bin\Debug\netcoreapp2.2\SecureWebAPi.dll
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\bin\Debug\netcoreapp2.2\SecureWebAPi.pdb
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.csproj.CoreCompileInputs.cache
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.RazorAssemblyInfo.cache
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.RazorAssemblyInfo.cs
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.AssemblyInfoInputs.cache
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.AssemblyInfo.cs
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.RazorTargetAssemblyInfo.cache
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.dll
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.pdb
+C:\Users\Melchior\Desktop\Test API\SecureWebAPi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.csprojAssemblyReference.cache
