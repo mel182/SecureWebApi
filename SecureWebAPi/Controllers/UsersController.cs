@@ -11,7 +11,7 @@ using SecureWebAPi.Database.Model;
 
 namespace SecureWebAPi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/users")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -23,6 +23,7 @@ namespace SecureWebAPi.Controllers
         }
 
         // GET: api/Users
+        [Route("all")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AuthenticatedUser>>> GetAuthenticatedUsers()
         {

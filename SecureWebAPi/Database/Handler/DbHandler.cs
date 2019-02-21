@@ -41,7 +41,7 @@ namespace SecureWebAPi.Database.Handler
 
                 var roleHandler = RoleHandler.Get;
                 roleHandler.SetContext(this.Context);
-
+                AdminHandler.Get.SetContext(this.Context);
                 UserHandler.Get.SetContext(this.Context);
                 UserRoleHandler.Get.SetContext(this.Context);
                 await roleHandler.StoreRolesAsync();
