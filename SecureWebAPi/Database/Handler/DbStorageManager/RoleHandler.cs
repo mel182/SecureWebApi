@@ -34,7 +34,8 @@ namespace SecureWebAPi.Database.Handler.DbStorageManage
             {
                 foreach (Role role in ROLES)
                 {
-                    this.Context.Roles.Add(role);
+                    if(!RoleExists(role.RoleName))
+                        this.Context.Roles.Add(role);
                 }
 
                 await this.Context.SaveChangesAsync();
@@ -53,6 +54,11 @@ namespace SecureWebAPi.Database.Handler.DbStorageManage
             }
 
             return -1;
+        }
+        
+        private bool RoleExists(string roleName)
+        {
+           return Context.Roles.Any(roleEntity => roleEntity.RoleName.Equals(roleName)); 
         }
     }
 

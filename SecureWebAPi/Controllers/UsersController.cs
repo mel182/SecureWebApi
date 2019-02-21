@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SecureWebAPi.Database;
+using SecureWebAPi.Database.Handler.DbStorageManager;
 using SecureWebAPi.Database.Model;
 
 namespace SecureWebAPi.Controllers
@@ -76,10 +77,19 @@ namespace SecureWebAPi.Controllers
         [HttpPost]
         public async Task<ActionResult<AuthenticatedUser>> PostAuthenticatedUser(AuthenticatedUser authenticatedUser)
         {
-            _context.AuthenticatedUsers.Add(authenticatedUser);
-            await _context.SaveChangesAsync();
+            var taskResult = UserHandler.Get.AddNewAuthenticatedUser(authenticatedUser); 
 
-            return CreatedAtAction("GetAuthenticatedUser", new { id = authenticatedUser.ID }, authenticatedUser);
+            if (taskResult != null)
+            {
+                return Ok(taskResult);
+            }
+
+            //_context.AuthenticatedUsers.Add(authenticatedUser);
+            //await _context.SaveChangesAsync();
+            Response.StatusCode = 500;
+            return Content("Unable to store data in database");
+            
+            //return CreatedAtAction("GetAuthenticatedUser", new { id = authenticatedUser.ID }, authenticatedUser);
         }
 
         // DELETE: api/Users/5

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SecureWebAPi.Database.Handler.DbStorageManage;
+using SecureWebAPi.Database.Handler.DbStorageManager;
 using SecureWebAPi.Database.Model;
 using System;
 using System.Collections.Generic;
@@ -39,8 +40,10 @@ namespace SecureWebAPi.Database.Handler
                 this.Context = this.ServiceProvider.GetRequiredService<DatabaseContext>();
 
                 var roleHandler = RoleHandler.Get;
-
                 roleHandler.SetContext(this.Context);
+
+                UserHandler.Get.SetContext(this.Context);
+                UserRoleHandler.Get.SetContext(this.Context);
                 await roleHandler.StoreRolesAsync();
 
                 return true;

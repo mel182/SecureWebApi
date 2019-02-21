@@ -30,9 +30,22 @@ namespace SecureWebAPi.Controllers
 
         // GET: api/Roles/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Role>> GetRole(int id)
+        public async Task<ActionResult<Role>> GetRole(string id)
         {
-            var role = await _context.Roles.FindAsync(id);
+            /*
+             * var role = await _context.Roles.FindAsync(id);
+
+            if (role == null)
+            {
+                return NotFound();
+            }
+
+            return role;
+            */
+
+            //var role = await _context.Roles.FindAsync(id);
+
+            var role = _context.Roles.Where(roleEntity => roleEntity.RoleName.Equals(id)).First();
 
             if (role == null)
             {
