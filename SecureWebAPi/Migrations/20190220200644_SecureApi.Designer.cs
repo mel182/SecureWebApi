@@ -8,7 +8,7 @@ using SecureWebAPi.Database;
 
 namespace SecureWebAPi.Migrations
 {
-    [DbContext(typeof(DatabaseContext))]
+    [DbContext(typeof(DatabaseRepository))]
     [Migration("20190220200644_SecureApi")]
     partial class SecureApi
     {

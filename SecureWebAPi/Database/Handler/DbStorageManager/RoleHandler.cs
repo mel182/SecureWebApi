@@ -1,4 +1,5 @@
-﻿using SecureWebAPi.Database.Handler.DbStorageManager;
+﻿using Microsoft.EntityFrameworkCore;
+using SecureWebAPi.Database.Handler.DbStorageManager;
 using SecureWebAPi.Database.Model;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace SecureWebAPi.Database.Handler.DbStorageManage
 
         private RoleHandler() { }
 
-        internal static RoleHandler Get
+        public static RoleHandler Get
         {
             get
             {
@@ -28,21 +29,36 @@ namespace SecureWebAPi.Database.Handler.DbStorageManage
             }
         }
 
-        internal async Task StoreRolesAsync()
+        public RoleHandler SetRepositoryContext(DatabaseRepository databaseRepository)
+        {
+            this.Context = databaseRepository;
+            return this;
+        }
+
+        public async Task<bool> Initialize()
         {
             if (Context != null)
             {
-                foreach (Role role in ROLES)
+                try
                 {
-                    if(!RoleExists(role.RoleName))
-                        this.Context.Roles.Add(role);
-                }
+                    foreach (Role role in ROLES)
+                    {
+                        if (!RoleExists(role.RoleName))
+                            this.Context.Roles.Add(role);
+                    }
 
-                await this.Context.SaveChangesAsync();
+                    await this.Context.SaveChangesAsync();
+
+                    return true;
+                }
+                catch (DbUpdateException) { }
+                catch (Exception) { } 
             }
+
+            return false;
         }
 
-        internal int GetRoleID(RoleType roleType)
+        public int GetRoleID(RoleType roleType)
         {
             if (Context != null)
             {

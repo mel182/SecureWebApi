@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using SecureWebAPi.Database;
-using SecureWebAPi.Database.Handler;
+using SecureWebAPi.Extensions;
 
 namespace SecureWebAPi
 {
@@ -29,10 +19,9 @@ namespace SecureWebAPi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            DatabaseContext.ConnectionString = Configuration.GetConnectionString("ApplicationDB:ApplicationDBConnectionString");
-            
-            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(DatabaseContext.ConnectionString));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.ConfigureMySqlContext(Configuration, "ApplicationDB:ApplicationDBConnectionString");
+    
+            services.CompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,8 +37,9 @@ namespace SecureWebAPi
                 app.UseHsts();
             }
 
-            DbHandler.Get.SetServiceProvider(app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope().ServiceProvider).Initialize();
-
+            app.ConfigureCors();
+            app.ConfigureDbHandler();
+            
             app.UseHttpsRedirection();
             app.UseMvc();
         }

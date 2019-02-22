@@ -14,9 +14,9 @@ namespace SecureWebAPi.Controllers
     [ApiController]
     public class RolesController : ControllerBase
     {
-        private readonly DatabaseContext _context;
+        private readonly DatabaseRepository _context;
 
-        public RolesController(DatabaseContext context)
+        public RolesController(DatabaseRepository context)
         {
             _context = context;
         }

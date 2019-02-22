@@ -15,5 +15,6 @@ namespace SecureWebAPi.Database.Model
         public string Password { get; set; } = "";
         public long CreationDate { get; set; } = 0;
         public long Updated { get; set; } = 0;
+        public bool Admin { get; set; } = false;
     }
 }

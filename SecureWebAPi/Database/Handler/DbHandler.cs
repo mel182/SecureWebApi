@@ -14,7 +14,7 @@ namespace SecureWebAPi.Database.Handler
     {
         private static readonly Lazy<DbHandler> handler = new Lazy<DbHandler>(() => new DbHandler());
 
-        private DatabaseContext Context { get; set; } = null;
+        private DatabaseRepository Context { get; set; } = null;
         private IServiceProvider ServiceProvider { get; set; } = null;
 
         private DbHandler() { }
@@ -37,14 +37,14 @@ namespace SecureWebAPi.Database.Handler
         {
             try
             {
-                this.Context = this.ServiceProvider.GetRequiredService<DatabaseContext>();
+                this.Context = this.ServiceProvider.GetRequiredService<DatabaseRepository>();
 
                 var roleHandler = RoleHandler.Get;
-                roleHandler.SetContext(this.Context);
-                AdminHandler.Get.SetContext(this.Context);
-                UserHandler.Get.SetContext(this.Context);
-                UserRoleHandler.Get.SetContext(this.Context);
-                await roleHandler.StoreRolesAsync();
+                roleHandler.SetRepositoryContext(this.Context);
+                AdminHandler.Get.SetRepositoryContext(this.Context);
+                UserHandler.Get.SetRepositoryContext(this.Context);
+                UserRoleHandler.Get.SetRepositoryContext(this.Context);
+                await roleHandler.Initialize();
 
                 return true;
             }
@@ -63,5 +63,14 @@ namespace SecureWebAPi.Database.Handler
         {
             return await this.Context.Roles.ToListAsync();
         }
+
+        public AdminHandler AdminHandler
+        {
+            get
+            {
+                return AdminHandler.Get;
+            }
+        }
+
     }
 }

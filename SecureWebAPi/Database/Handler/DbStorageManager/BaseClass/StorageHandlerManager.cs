@@ -7,10 +7,10 @@ namespace SecureWebAPi.Database.Handler.DbStorageManager
 {
     public abstract class StorageHandlerManager
     {
-        protected DatabaseContext Context { get; set; }
+        protected DatabaseRepository Context { get; set; }
 
 
-        public void SetContext(DatabaseContext databaseContext)
+        public void SetRepositoryContext(DatabaseRepository databaseContext)
         {
             this.Context = databaseContext;
         }

@@ -1,4 +1,8 @@
-﻿using SecureWebAPi.Api.Response.Model;
+﻿using Microsoft.AspNetCore.Mvc;
+using SecureWebAPi.Api.Response.Model;
+using SecureWebAPi.Database.Handler.DbStorageManage;
+using SecureWebAPi.Database.Model;
+using SecureWebAPi.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +28,19 @@ namespace SecureWebAPi.Database.Handler.DbStorageManager
 
         public async Task<ActionResult<IEnumerable<RegisteredUser>>> GetAllAdmin()
         {
+            List<RegisteredUser> registeredAdmins = new List<RegisteredUser>();
 
-            if(Context != null)
+            if (Context != null)
             {
-                return await Context.AuthenticatedUsers.ToList();
+                var adminUserList = Context.AuthenticatedUsers.Where(registeredUser => registeredUser.Admin == true).ToList();
+
+                foreach(AuthenticatedUser adminUserFound in adminUserList)
+                {
+                    registeredAdmins.Add(adminUserFound.ToRegisteredUser(RoleType.ADMIN));
+                }
             }
-            
+
+            return registeredAdmins;
         }
 
 

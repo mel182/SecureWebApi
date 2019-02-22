@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SecureWebAPi.Database;
 using SecureWebAPi.Database.Handler.DbStorageManager;
 using SecureWebAPi.Database.Model;
+using SecureWebAPi.Database.Services;
 
 namespace SecureWebAPi.Controllers
 {
@@ -15,9 +16,9 @@ namespace SecureWebAPi.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly DatabaseContext _context;
+        private readonly DatabaseRepository _context;
 
-        public UsersController(DatabaseContext context)
+        public UsersController(DatabaseRepository context)
         {
             _context = context;
         }
@@ -78,19 +79,25 @@ namespace SecureWebAPi.Controllers
         [HttpPost]
         public async Task<ActionResult<AuthenticatedUser>> PostAuthenticatedUser(AuthenticatedUser authenticatedUser)
         {
-            var taskResult = UserHandler.Get.AddNewAuthenticatedUser(authenticatedUser); 
+            var newUser = DatabaseService.Get.AddUserAsync(authenticatedUser).Result;
 
-            if (taskResult != null)
+            if (newUser != null)
             {
-                return Ok(taskResult);
+                return Ok(new
+                {
+                    id = newUser.ID,
+                    firstName = newUser.FirstName,
+                    lastName = newUser.LastName,
+                    email = newUser.Email,
+                    userName = newUser.UserName,
+                    role = newUser.Role,
+                    creationDate = newUser.CreationDate,
+                    updated = newUser.Updated
+                });
             }
-
-            //_context.AuthenticatedUsers.Add(authenticatedUser);
-            //await _context.SaveChangesAsync();
+            
             Response.StatusCode = 500;
             return Content("Unable to store data in database");
-            
-            //return CreatedAtAction("GetAuthenticatedUser", new { id = authenticatedUser.ID }, authenticatedUser);
         }
 
         // DELETE: api/Users/5

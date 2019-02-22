@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace SecureWebAPi.Database
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseRepository : DbContext
     {
         public static string ConnectionString { get; set; } = "";
         public DbSet<AuthenticatedUser> AuthenticatedUsers { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
 
-        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
+        public DatabaseRepository(DbContextOptions<DatabaseRepository> options) : base(options) { }
     }
 }

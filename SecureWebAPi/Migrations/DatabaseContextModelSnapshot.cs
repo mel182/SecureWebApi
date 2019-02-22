@@ -7,7 +7,7 @@ using SecureWebAPi.Database;
 
 namespace SecureWebAPi.Migrations
 {
-    [DbContext(typeof(DatabaseContext))]
+    [DbContext(typeof(DatabaseRepository))]
     partial class DatabaseContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

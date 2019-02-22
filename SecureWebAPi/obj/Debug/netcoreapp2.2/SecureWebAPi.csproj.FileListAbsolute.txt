@@ -26,3 +26,16 @@ C:\Users\Melchior\Documents\Github\SecureWebApi\SecureWebAPi\obj\Debug\netcoreap
 C:\Users\Melchior\Documents\Github\SecureWebApi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.RazorTargetAssemblyInfo.cache
 C:\Users\Melchior\Documents\Github\SecureWebApi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.dll
 C:\Users\Melchior\Documents\Github\SecureWebApi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.pdb
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.csproj.CoreCompileInputs.cache
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.RazorAssemblyInfo.cache
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.RazorAssemblyInfo.cs
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.AssemblyInfoInputs.cache
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.AssemblyInfo.cs
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.dll
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.pdb
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\bin\Debug\netcoreapp2.2\SecureWebAPi.deps.json
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\bin\Debug\netcoreapp2.2\SecureWebAPi.runtimeconfig.json
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\bin\Debug\netcoreapp2.2\SecureWebAPi.runtimeconfig.dev.json
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\bin\Debug\netcoreapp2.2\SecureWebAPi.dll
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\bin\Debug\netcoreapp2.2\SecureWebAPi.pdb
+C:\Users\mvrolijk\Documents\GitHub\SecureWebApi\SecureWebAPi\obj\Debug\netcoreapp2.2\SecureWebAPi.RazorTargetAssemblyInfo.cache

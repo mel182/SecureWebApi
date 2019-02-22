@@ -20,10 +20,10 @@ namespace SecureWebAPi.Database.Handler.DbStorageManager
             }
         }
 
-        public async Task InitializeAsync(DatabaseContext databaseContext)
+        public async Task InitializeAsync(DatabaseRepository databaseContext)
         {
-            SetContext(databaseContext);
-            await RoleHandler.Get.StoreRolesAsync();
+            SetRepositoryContext(databaseContext);
+            await RoleHandler.Get.Initialize();
         }
         
         public async Task<UserRole> StoreRoleAsync(long userID, RoleType roleType)
